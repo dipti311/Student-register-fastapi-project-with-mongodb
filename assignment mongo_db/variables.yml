@@ -1,0 +1,65 @@
+deployment:
+  environmentVar:
+    - name: MODULE_NAME
+      value: "visualization"
+    - name: MONGO_URI
+      valueFrom:
+        secretKeyRef:
+          name: mongo-creds
+          key: MONGO_URI
+    - name: MQTT_URL
+      value: "mqtt-service.ilens-infra"
+    - name: MQTT_URI
+      value: "mqtt://mqtt-service.ilens-infra:1883"
+    - name: MQTT_PORT
+      value: "1883"
+    - name: ILENS_META_SERVICE_URL
+      value: "http://metadata-service.ilens-core.svc.cluster.local:8989"
+    - name: REDIS_URI
+      value: "redis://redis-db-service.ilens-infra:6379"
+    - name: BASE_PATH
+      value: "/code/data"
+    - name: MOUNT_DIR
+      value: "visualization"
+    - name: LOG_LEVEL
+      value: "INFO"
+    - name: K_PARALLEL_QUERY
+      value: "False"
+    - name: SECURE_ACCESS
+      value: "True"
+    - name: MODULE_PUBLIC_URL
+      value: "https://qa.ilens.io/visual4.0"
+    - name: GOTENBERG_SERVER
+      value: "http://gotenberg.ilens-core.svc.cluster.local:3000"
+    - name: CACHE_AGE
+      value: "60"
+    - name: ENABLE_CACHE
+      value: "True"
+    - name: MAX_CON_WORKER
+      value: "10"
+    - name: KAIROS_CACHE_TIME
+      value: "60"
+    - name: DIGEST_USER
+      value: "AllGoodNamesRGone"
+    - name: DIGEST_PW
+      value: "comBRANSeANtamasEbICaPeC"
+    - name: ALLOW_SAMPLING
+      value: "True"
+    - name: THRESHOLD
+      value: "2500"
+    - name: SAMPLE_SET
+      value: "500"
+    - name: CORS_URLS
+      value: "https://qa.ilens.io,https://staging.ilens.io"
+    - name: SW_DOCS_URL
+      value: "/docs"
+    - name: SW_OPENAPI_URL
+      value: "/openapi.json"
+    - name: ENABLE_CORS
+      value: "True"
+    - name: SECURE_COOKIE
+      value: "True"
+    - name: REDIS_LOGIN_DB
+      value: "9"
+    - name: REDIS_PROJECT_DB
+      value: "18"
